@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
 //
 //                    Text(text = text.value)
                     FirebaseTest().init(FirebaseAuth.getInstance())
-
+                    FirebaseTest().signInWithEmail()
+                    Text(text = FirebaseTest().instance?.currentUser?.email.toString())
                 }
             }
         }
