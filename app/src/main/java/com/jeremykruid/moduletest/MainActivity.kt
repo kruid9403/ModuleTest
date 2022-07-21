@@ -4,15 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import com.jeremykruid.moduletest.ui.theme.ModuleTestTheme
-import com.jeremykruid.testmodule.TestClass
+import com.jeremykruid.testmodule.TextTest
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +21,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Column() {
                     Greeting("Android")
-//                    TestClass().TextTest()
+                    TextTest()
 //                    TestClass().loginUser {
 //                        text.value = TestClass().getUId()
 //                    }

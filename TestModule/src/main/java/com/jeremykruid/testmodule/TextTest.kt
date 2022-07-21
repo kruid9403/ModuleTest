@@ -9,13 +9,14 @@ fun TextTest(){
     Text(text = "some text that might work")
 }
 
-fun getUId(): String{
-    return FirebaseAuth.getInstance().currentUser.toString()
-}
 
-fun loginUser(loggedIn: () -> Unit){
-    FirebaseAuth.getInstance().signInWithEmailAndPassword("a@a.com", "111111")
-        .addOnCompleteListener {
-            loggedIn.invoke()
-        }
-}
+//fun getUId(): String{
+//    return FirebaseAuth.getInstance().currentUser.toString()
+//}
+//
+//fun loginUser(loggedIn: () -> Unit){
+//    FirebaseAuth.getInstance().signInWithEmailAndPassword("a@a.com", "111111")
+//        .addOnCompleteListener {
+//            loggedIn.invoke()
+//        }
+//}
