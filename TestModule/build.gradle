@@ -57,7 +57,7 @@ afterEvaluate{
 
                 groupId = "com.github.kruid9403"
                 artifactId = "test-module"
-                version = 1.0
+                version = 1.01
             }
         }
     }
