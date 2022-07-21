@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
+import com.google.firebase.auth.FirebaseAuth
 import com.jeremykruid.moduletest.ui.theme.ModuleTestTheme
+import com.jeremykruid.testmodule.FirebaseTest
 import com.jeremykruid.testmodule.TextTest
 
 class MainActivity : ComponentActivity() {
@@ -27,6 +29,8 @@ class MainActivity : ComponentActivity() {
 //                    }
 //
 //                    Text(text = text.value)
+                    FirebaseTest().init(FirebaseAuth.getInstance())
+
                 }
             }
         }
