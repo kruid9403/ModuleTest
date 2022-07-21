@@ -65,5 +65,4 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'com.github.kruid9403:ModuleTest:1.0'
-
 }

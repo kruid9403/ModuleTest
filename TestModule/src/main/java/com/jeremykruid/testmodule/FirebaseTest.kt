@@ -1,6 +1,8 @@
 package com.jeremykruid.testmodule
 
+import android.content.Context
 import androidx.compose.runtime.mutableStateOf
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.auth.FirebaseUser
@@ -10,8 +12,9 @@ class FirebaseTest {
     var instance: FirebaseAuth? = null
     val currentUser = mutableStateOf<FirebaseUser?>(null)
 
-    fun init(firebaseInstance: FirebaseAuth){
-        instance = firebaseInstance
+    fun init(auth: FirebaseAuth, context: Context){
+        FirebaseApp.initializeApp(context)
+        instance = auth
         setAuthListener()
     }
 

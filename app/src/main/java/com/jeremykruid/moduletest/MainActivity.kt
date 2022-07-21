@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.jeremykruid.moduletest.ui.theme.ModuleTestTheme
 import com.jeremykruid.testmodule.FirebaseTest
@@ -17,9 +17,11 @@ import com.jeremykruid.testmodule.TextTest
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val text = remember{ mutableStateOf("")}
+        val auth = FirebaseAuth.getInstance()
         setContent {
             ModuleTestTheme {
+                val context = LocalContext.current
+//                FirebaseApp.initializeApp(context)
                 // A surface container using the 'background' color from the theme
                 Column() {
                     Greeting("Android")
@@ -28,10 +30,12 @@ class MainActivity : ComponentActivity() {
 //                        text.value = TestClass().getUId()
 //                    }
 //
-//                    Text(text = text.value)
-                    FirebaseTest().init(FirebaseAuth.getInstance())
+//                    Text(text = text.value
+                    FirebaseTest().init(auth = auth, context = context)
                     FirebaseTest().signInWithEmail()
-                    Text(text = FirebaseTest().instance?.currentUser?.email.toString())
+                    if(FirebaseTest().currentUser.value != null) {
+                        Text(text = FirebaseTest().instance?.currentUser?.email.toString())
+                    }
                 }
             }
         }
