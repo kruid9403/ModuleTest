@@ -17,7 +17,9 @@ import com.jeremykruid.testmodule.TextTest
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         val auth = FirebaseAuth.getInstance()
+        val firebaseTest = FirebaseTest(application)
         setContent {
             ModuleTestTheme {
                 val context = LocalContext.current
@@ -31,10 +33,10 @@ class MainActivity : ComponentActivity() {
 //                    }
 //
 //                    Text(text = text.value
-                    FirebaseTest().init(auth = auth, context = context)
-                    FirebaseTest().signInWithEmail()
-                    if(FirebaseTest().currentUser.value != null) {
-                        Text(text = FirebaseTest().instance?.currentUser?.email.toString())
+                    firebaseTest.init(auth = auth, context = context)
+                    firebaseTest.signInWithEmail()
+                    if(firebaseTest.currentUser.value != null) {
+                        Text(text = firebaseTest.instance?.currentUser?.email.toString())
                     }
                 }
             }
